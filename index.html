@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Downloader | Download Facebook Videos And Facebook Posts</title>
+    <meta name="description"
+        content="SocialKept Facebook downloader is a fast, simple, and free tool for downloading Facebook videos and posts. No registration and subscription is needed.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+
+</head>
+
+<body>
+
+
+    <br>
+    <center> <img
+            src="https://blogger.googleusercontent.com/img/a/AVvXsEgw2-eja09W6k97vzfNVw8Do-T4yQD9fmvh7NDy5DqpmN3KvatGpUHGb9j8rHbs3oQ3niHmOeIE_g-_zbhF4rM0eDVhU1_4eKMTX7b3swVSfGJ3kXNrpGfCANqRgSPojCu8h5xed7WzTKWsmq4qxA2wI03cKhEGuRd9laLvsFyuOvCFBAuXBTlQ98HV=s320"
+            alt="Fastlink logo" style="margin-bottom: 0%;" height="80px" srcset="">
+    </center>
+    <center>
+        <h1 style="margin-bottom: 0%;" class="sitetitle">FAST<span style="font-weight: 200;">LINK</span></h1>
+        <p style="margin-top: 0%;"><small class="titlesmallheaing" style="font-size: 14px;">Get Short Link Fast</small>
+        </p>
+    </center>
+    <center>
+    </center>
+    <hr>
+    <center>
+                <input type="text" required autocomplete="off"  name="userlink" id="inputfield"
+                    placeholder="Link You Want To Short?">
+
+        <center><small>
+                <li style="padding: 0%;color: gray;" class="fa  fa-paste"> </li> Paste your long URL above </li>
+            </small>
+        </center>
+        <center>
+            </button><button type="reset" onclick="noinput()" id="resetbutton">Reset <li class="fa  fa-refresh"></li>
+                <button type="button" style="background-color: #fd00a9; color: white;" onclick="pasteurl()"
+                    id="pastebutton">Paste <li style="color: white;" class="fa fa-paste">
+                    </li>
+                </button></center>
+    </center>
+
+    <!-- Socket io code starts for getting input url from user -->
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+
+        document.getElementById("inputfield").addEventListener("input", () => {
+            // main code to run the operation
+            var userinputlink = document.getElementById("inputfield").value
+            if (userinputlink.includes("http") && userinputlink.includes(".") && userinputlink.includes(":") && userinputlink.includes("//")) {
+                socket.emit("userinputlink", userinputlink)
+            }
+        })
+
+        socket.on("shorturlgenerated",(shorturlgenerated)=>{
+
+            document.getElementById("linkbox").style.display = "block"
+document.getElementById("generatedlinkspan").innerText = `${window.location.href}${shorturlgenerated}`
+
+
+        })
+
+
+        socket.on("titleoftheurl", (titleoftheurl)=>{
+
+if(titleoftheurl != ""){
+    document.getElementById("titleofthelinkpage").innerText = `${titleoftheurl.substring(0, 65)}...`
+
+}
+else{
+
+    document.getElementById("titleofthelinkpage").innerText = `This url dont have title`
+
+}
+
+        })
+
+    </script>
+
+
+
+
+<br>
+    <div style="display: none;" id="linkbox">
+        <br>
+        <span  id= "titleofthelinkpage" class="titleofthelink">Loading...</span>
+        <br>
+        <br>
+        <div>
+            <span class="generatedlink" id="generatedlinkspan"></span>
+
+            <l style="margin-top: 5px; border-radius: 50%; background-color: aliceblue; color: darkblue; " id="generatedlinkcopybutton" onclick="copygerneatedlink()" class="fa linkedicon fa-copy"> </i>
+        </div>
+
+
+<style>
+#generatedlinkcopybutton{
+    animation: blinker 2s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0.8;
+  }
+}
+
+#generatedlinkcopybutton:hover{
+
+    animation: blinker 1000s linear infinite;
+
+}
+    
+</style>
+
+        <script>
+
+
+
+        </script>
+<hr>
+        <center>
+            <i class="fa fa-bullhorn"></i>
+            <li class="fa whatsappicon fa-whatsapp" onclick="whatsappshare()"></li>
+            <li class="fa facbookicon fa-facebook-f" onclick="facebookshare()"></li>
+            <li class="fa twittericon fa-twitter" onclick="twittershare()"></li>
+            <li class="fa redditicon fa-reddit" onclick="redditshre()"></li>
+        </center>
+    </div>
+    <hr>
+
+
+
+    <br>
+   <div class="allcontainer">
+    <div class="contentpara">
+        <i class="fa contenticons fa-key"></i>
+        <h3><i class="fa fa-check"></i> No Limitations</h3>
+        <p>
+            With SocailKept facebook downloader there is no limit on the number of videos, audio, or posts that you can
+            download. You are free to download as much as you want.</p>
+    </div>
+
+    <div class="contentpara">
+        <i class="fa contenticons fa-sign-in"></i>
+        <h3><i class="fa fa-check"></i> No Registration</h3>
+        <p>You can use SocailKept facebook downloader without any registration or sign. The best part is that you don't
+            have
+            to pay any subscription fee to use this Facebook downloader tool.
+        </p>
+    </div>
+
+    <div class="contentpara">
+        <i class="fa contenticons fa-shield"></i>
+        <h3><i class="fa fa-check"></i> Safe and Clean
+        </h3>
+        <p>While using the SocailKept Facebook Downloader can download Facebook videos safely. We don't use any harmful
+            tool that can harm you. 
+        </p>
+    </div>
+
+    <div class="contentpara">
+        <i class="fa contenticons fa-desktop"></i>
+        <h3><i class="fa fa-check"></i> All Platform Support
+        </h3>
+        <p>You can use the SocailKept facebook downloader on your all devices and all operating systems like Windows,
+            Mac,
+            Linux, Android, iPhone, and any other device you are using. SocailKept works with all the latest browsers
+            like
+            Chrome, Firefox, Safari, Microsoft Edge, etc.
+        </p>
+    </div>
+
+    <div class="contentpara">
+        <i class="fa contenticons fa-file"></i>
+        <h3><i class="fa fa-check"></i> All File Supports
+        </h3>
+        <p>You can use the SocailKept facebook downloader to download all types of videos and audio from Facebook. It
+            does
+            matter how large is the file.
+        </p>
+    </div>
+
+    <div class="contentpara">
+        <i class="fa contenticons fa-fighter-jet"></i>
+        <h3><i class="fa fa-check"></i> Download Fast
+        </h3>
+        <p>With SocialKept facebook downloader you can download the audios and video with high speed. We don't store the
+            Facebook video on our server instead we connect you to the Facebook server so that the data transfer occurs
+            at a   faster rate.
+
+        
+    </div>
+
+    <div class="contentpara">
+        <i class="fa contenticons fa-wrench"></i>
+        <h3><i class="fa fa-check"></i> No Span And Popups
+        </h3>
+        <p>We don't show you any type of popups contain add to inappropriate content that you don't want to see. Also,
+            we
+            don't spam you by sending opening random tabs without your permission or redirecting you to the pages that
+            contain
+            additives and inappropriate content.
+        </p>
+    </div>
+
+    <div class="hhh">
+        <div class="contentpara">
+            <i class="fa contenticons fa-lock"></i>
+            <h3><i class="fa fa-check"></i> Privacy Locked
+            </h3>
+            <p>SocialKept facebook downloader doesn't collect your information, store it in the server or sell it to the
+                advertiser. We even don't use cookies so that your browser experiences can be safer. SoicalKept facebook
+                downloader respects your privacy.
+            </p>
+        </div>
+    </div>
+
+    <div class="contentpara">
+        <i class="fa contenticons fa-question-circle-o"></i>
+        <h3><i class="fa fa-check"></i> Fast And Easy To Use</h3>
+        <p>Downloading Facebook video and audios from SocialKept is very simple and fast. </p>
+
+
+        <p>1. Copy the link of Facebook video or post you want to download.</p>
+        <p>2. Come to SocailKept facebook downloader and then paste the pnk in the search bar.</p>
+        <p>3. You will be redirected to the Facebook download page.</p>
+        <p>4. Now, you can download the video and audio for free.</p>
+
+
+
+        <p>You can use the Paste button to paste the link that you have copied from the site or app and get the video
+            fast
+        </p>
+    </div>
+
+
+    </div>
+   </div>
+    <hr>
+    <br>
+    <div class="navigation">
+        <center>
+            <li class="navlinks"><a href="/p/home">Home</a></li>
+            <li class="navlinks"> <a href="/p/about">About</a></li>
+            <li class="navlinks"><a href="/p/contact">Contact</a></li>
+            <li class="navlinks"><a href="/p/privacy">Privacy</a></li>
+            <li class="navlinks"><a href="/p/Disclamer">Disclamer</a></li>
+        </center>
+        <br>
+        <center><small style="font-size: 11px;">Copyright © SocialKept. All rights reserved.</small></center>
+    </div>
+
+</body>
+
+
+
+
+</html>

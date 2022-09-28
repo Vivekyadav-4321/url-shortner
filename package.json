@@ -1,0 +1,21 @@
+{
+  "name": "Fastlink",
+  "version": "1.0.0",
+  "description": "A application to short URL",
+  "main": "index.js",
+  "scripts": {
+  },
+  "keywords": [
+    "URL",
+    "shortener",
+    "url"
+  ],
+  "author": "Vivek Yadav",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "get-url-title": "^2.0.0",
+    "mongoose": "^6.2.4",
+    "socket.io": "^4.4.1"
+  }
+}
